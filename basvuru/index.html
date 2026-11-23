@@ -105,7 +105,7 @@ input:focus,select:focus{background:#fff;border-color:rgba(64,21,34,.35);box-sha
 .chips input:checked+span{background:rgba(64,21,34,.12);border-color:rgba(64,21,34,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.5);animation:sel .45s var(--spring)}
 @keyframes sel{0%{transform:scale(.92)}100%{transform:none}}
 .tel,#wauser{animation:up .35s ease both}
-.cta{background:linear-gradient(to top,var(--bg) 0,var(--bg) 45%,rgba(247,232,236,0) 100%);padding:16px 10px calc(6px + env(safe-area-inset-bottom))}
+.cta{background:linear-gradient(to top,var(--bg) 0,var(--bg) 45%,rgba(247,232,236,0) 100%);padding:16px 10px calc(14px + env(safe-area-inset-bottom))}
 .cta-bar{max-width:456px;margin:0 auto;border-radius:36px;padding:6px}
 .cta button{height:54px;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 10px 24px -12px rgba(64,21,34,.7);transition:transform .35s var(--spring),opacity .2s}
 .cta button:active{transform:scale(.96)}
@@ -133,7 +133,7 @@ body.touched .caret,#name:focus+.caret,#name:not(:placeholder-shown)+.caret{disp
 .top{margin-bottom:16px}.lede{font-size:15px;line-height:1.5;color:var(--label2);margin-bottom:28px}.kvtext{margin:0 0 16px}
 .lede{white-space:pre-line}.ferr{color:#9b1c3a;font-size:13px;margin-top:8px}
 .ferr:not([hidden]),.err:not(:empty){display:flex;gap:6px;align-items:flex-start}.ferr::before,.err::before{content:"";flex:none;width:15px;height:15px;margin-top:1px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='none' stroke='black' stroke-width='1.6'/%3E%3Crect x='7.2' y='3.8' width='1.6' height='5.4' rx='.8'/%3E%3Ccircle cx='8' cy='11.6' r='1'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='none' stroke='black' stroke-width='1.6'/%3E%3Crect x='7.2' y='3.8' width='1.6' height='5.4' rx='.8'/%3E%3Ccircle cx='8' cy='11.6' r='1'/%3E%3C/svg%3E") center/contain no-repeat}
-@media (min-width:600px){.cta{padding-bottom:calc(12px + env(safe-area-inset-bottom))}.cta-bar{padding:8px}.cta .kvkk{margin-top:24px}}
+@media (min-width:600px){.cta{padding-bottom:calc(20px + env(safe-area-inset-bottom))}.cta-bar{padding:8px}.cta .kvkk{margin-top:24px}}
 @media (max-width:350px){.chips{grid-template-columns:1fr 1fr}.chips span{font-size:14px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -193,7 +193,7 @@ body.touched .caret,#name:focus+.caret,#name:not(:placeholder-shown)+.caret{disp
 
     <p class="err" id="err" role="alert"></p>
 
-    <div class="cta"><div class="cta-bar"><button class="send" type="submit" data-t="send"></button></div><p class="kvkk"><span data-t="kvkkA"></span><a href="../kvkk/" id="kvLink" target="_blank" rel="noopener" data-t="kvkkLink"></a><span data-t="kvkkB"></span></p></div>
+    <div class="cta"><div class="cta-bar"><button class="send" type="submit" data-t="send"></button></div></div>
   </form>
 </div>
 
@@ -208,7 +208,7 @@ body.touched .caret,#name:focus+.caret,#name:not(:placeholder-shown)+.caret{disp
 // 1) Apps Script "Web app" URL'sini buraya yapıştır:
 const ENDPOINT = "https://script.google.com/macros/s/AKfycbyUQsxbt3u6CwMxh9Qd8XbPSHXRYXvjdms9JeoNQXwle5D-ZYAtPBbMFppZODabd6sSMg/exec";
 
-const DISTRICTS = ["Çiğli","Karşıyaka","Bornova","Alsancak","Göztepe","Balçova","Buca","Gaziemir"];
+const DISTRICTS = ["Karşıyaka","Bornova","Alsancak","Göztepe","Balçova","Çiğli","Buca","Gaziemir"];
 
 const T = {
  tr:{title:"Topluluğa katıl.",lead:"Kadınlara özel, oyunlarla İngilizce konuşma kulübü. Bu formla WhatsApp duyuru grubumuza katılırsın. Etkinliklere katılmak tamamen senin kararın, hiçbir taahhüt yok.",
@@ -217,7 +217,7 @@ const T = {
   level:"İngilizce seviyen nedir?",l1:"Başlangıç",l2:"Orta",l3:"İleri",l4:"Ana dilim",multi:"İstediğin kadar seçebilirsin.",
   districts:"Hangi semtlerdeki etkinliklere katılmak isterdin?",times:"Hangi günler sana uyar?",
   t1:"Hafta içi akşam",t2:"Cumartesi akşam",t3:"Pazar akşam",t0:"Gündüz",any:"Fark etmez",
-  free:"Ücretsiz duyuru grubumuza katılıyorsun.\nBu bir etkinlik kaydı değil; etkinlikler ve biletler grupta duyurulur.\nOnayın WhatsApp'tan gelir.",kvkkA:"Kişisel verilerin ",kvkkLink:"KVKK aydınlatma metni",kvkkB:" kapsamında işlenir.",
+  free:"Ücretsiz WhatsApp duyuru grubumuza katılıyorsun.\nEtkinlikler ve biletler orada duyurulur.",kvkkA:"Kişisel verilerin ",kvkkLink:"KVKK aydınlatma metni",kvkkB:" kapsamında işlenir.",
   kvkkText:"Girl Talk İzmir olarak ad soyad, WhatsApp numarası veya kullanıcı adı, İngilizce seviyesi, semt ve zaman tercihlerini; başvurunu değerlendirmek, kadınlara özel topluluk güvenliğini sağlamak, seni WhatsApp duyuru grubuna eklemek ve etkinlik planlamak amacıyla, talep ettiğin hizmeti sunmak için (KVKK m.5/2-c) işliyoruz. Veriler Google Sheets üzerinde saklanır (yurt dışında bulunan sunucular), üçüncü kişilerle paylaşılmaz ve en fazla 2 yıl tutulur. KVKK m.11 kapsamındaki haklarını kullanmak veya verilerinin silinmesini istemek için Instagram @girltalk.izmir hesabımıza yazabilirsin.",
   send:"Gruba katıl",sending:"Gönderiliyor…",errName:"Lütfen adını ve soyadını yaz.",errUser:"Kullanıcı adını kontrol eder misin? En az 3 karakter olmalı.",errPhone:"Numaranı kontrol eder misin? 5XX XXX XX XX şeklinde 10 hane olmalı.",errReq:"Lütfen tüm alanları doldur, en az bir semt ve bir zaman seç.",errNet:"Bir sorun oldu, tekrar dener misin?",
   hi:n=>`Hoş geldin${n?", "+n:""} 🤍`,doneText:"Artık Girl Talk'un bir parçasısın. En kısa süre içinde seni WhatsApp duyuru grubumuza ekleyeceğiz. Buluşmalarımızı orada duyuracağız, görüşmek üzere 🥂",ig:"Instagram'da bizi takip et"},
@@ -227,7 +227,7 @@ const T = {
   level:"What's your English level?",l1:"Beginner",l2:"Intermediate",l3:"Advanced",l4:"Native",multi:"Choose as many as you like.",
   districts:"Where would you like to join events?",times:"Which days work for you?",
   t1:"Weekday evening",t2:"Saturday evening",t3:"Sunday evening",t0:"Daytime",any:"No preference",
-  free:"You're joining our free announcement group.\nThis isn't an event sign-up; events and tickets are shared in the group.\nYour confirmation comes via WhatsApp.",kvkkA:"Your data is processed as described in our ",kvkkLink:"KVKK privacy notice",kvkkB:".",
+  free:"You're joining our free WhatsApp announcement group.\nEvents and tickets are shared there.",kvkkA:"Your data is processed as described in our ",kvkkLink:"KVKK privacy notice",kvkkB:".",
   kvkkText:"Girl Talk İzmir processes your name, WhatsApp number or username, English level, area and time preferences, to provide the service you request (KVKK Art. 5/2-c): to review your application, keep our women-only community safe, add you to our WhatsApp announcement group and plan events. Data is stored in Google Sheets (servers located abroad), is never shared with third parties and is kept for up to 2 years. To exercise your rights under Turkish data protection law (KVKK Art. 11) or to request deletion, message us on Instagram @girltalk.izmir.",
   send:"Join the group",sending:"Sending…",errName:"Please enter your first and last name.",errUser:"Please check your username, it needs at least 3 characters.",errPhone:"Please check your number. Turkish numbers have 10 digits: 5XX XXX XX XX.",errReq:"Please fill in every field and pick at least one area and one time.",errNet:"Something went wrong, please try again.",
   hi:n=>`Welcome${n?", "+n:""} 🤍`,doneText:"You're officially part of Girl Talk. We'll add you to our WhatsApp announcement group as soon as possible. Our meetups are announced there, see you soon 🥂",ig:"Follow us on Instagram"}
