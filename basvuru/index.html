@@ -36,7 +36,7 @@ body{background:var(--bg);color:var(--ink);font:400 16px/1.5 var(--sys);-webkit-
 .hero h1{font:600 30px/1.2 var(--sys);letter-spacing:-.02em;margin-bottom:12px}
 .lead{color:var(--muted);font-size:16px;line-height:1.55}
 /* sections */
-.card{border:0;padding:0;min-width:0;margin-bottom:32px;animation:up .5s both}
+.card{border:0;padding:0;min-width:0;margin-bottom:28px;animation:up .5s both}
 @keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .q,legend{display:block;width:100%;float:left;padding:0;font-weight:600;font-size:17px;line-height:1.35;letter-spacing:-.01em;margin-bottom:12px}
 legend small,.hint{display:block;font-weight:400;font-size:14px;line-height:1.45;color:var(--muted);letter-spacing:0}
@@ -133,6 +133,8 @@ input::placeholder{color:var(--label3)}
 .done p{color:var(--label2);font-size:16px;line-height:1.55;max-width:330px}
 .igbtn{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 24px;margin-top:32px;border-radius:999px;color:var(--tint);font:600 15px/1 var(--sys);text-decoration:none;background:var(--glass);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);box-shadow:inset 0 1px 0 var(--glassHi),inset 0 0 0 1px var(--glassEdge),0 8px 24px -12px rgba(64,21,34,.3);animation:up .6s .45s both;transition:transform .35s var(--spring)}
 .igbtn:active{transform:scale(.96)}
+.top{margin-bottom:16px}.lede{font-size:15px;line-height:1.5;color:var(--label2);margin-bottom:28px}.kvtext{margin:0 0 16px}
+.lede{white-space:pre-line}.ferr{color:#9b1c3a;font-size:13px;margin-top:8px}
 @media (max-width:350px){.chips{grid-template-columns:1fr 1fr}.chips span{font-size:14px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -143,6 +145,7 @@ input::placeholder{color:var(--label3)}
     <img class="logo" src="logo.svg" alt="Girl Talk" width="96" height="24">
     <div class="lang"><button type="button" data-l="tr">TR</button><button type="button" data-l="en">EN</button></div>
   </div>
+  <p class="lede" data-t="free"></p>
 
   <form id="form" novalidate>
     <div class="card">
@@ -155,7 +158,8 @@ input::placeholder{color:var(--label3)}
       <label class="q" for="phone" data-t="phone"></label>
       <div class="segc" role="tablist"><button type="button" role="tab" class="on" data-v="num" data-t="cNum"></button><button type="button" role="tab" data-v="user" data-t="cUser"></button></div>
       <div class="tel" id="telBox"><select id="cc" aria-label="Country code"></select><input type="tel" id="phone" name="phone" autocomplete="tel-national" inputmode="tel" placeholder="5XX XXX XX XX"></div>
-      <input type="text" id="wauser" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="@" hidden>
+      <p class="ferr" id="phErr" data-t="errPhone" hidden></p>
+      <input type="text" id="wauser" autocapitalize="off" autocorrect="off" spellcheck="false" data-ph="uPh" hidden>
     </div>
 
     <fieldset class="card">
@@ -186,10 +190,7 @@ input::placeholder{color:var(--label3)}
 
     <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-    <div class="card notes">
-      <p class="free" data-t="free"></p>
-      <p class="kvtext" id="kvText" data-t="kvkkText" hidden></p>
-    </div>
+    <p class="kvtext" id="kvText" data-t="kvkkText" hidden></p>
 
     <p class="err" id="err" role="alert"></p>
 
@@ -213,24 +214,24 @@ const DISTRICTS = ["Çiğli","Karşıyaka","Bornova","Alsancak","Göztepe","Bal�
 const T = {
  tr:{title:"Topluluğa katıl.",lead:"Kadınlara özel, oyunlarla İngilizce konuşma kulübü. Bu formla WhatsApp duyuru grubumuza katılırsın. Etkinliklere katılmak tamamen senin kararın, hiçbir taahhüt yok.",
   name:"Adın soyadın ne?",namePh:"Adın ve soyadın",nameHint:"Gruba gerçek adınla ekleyebiliyoruz, lütfen tam adını yaz.",
-  phone:"WhatsApp'tan sana nasıl ulaşalım?",cNum:"Telefon numarası",cUser:"Kullanıcı adı",
+  phone:"WhatsApp'tan sana nasıl ulaşalım?",cNum:"Telefon numarası",cUser:"Kullanıcı adı",uPh:"@kullaniciadi",
   level:"İngilizce seviyen nedir?",l1:"Başlangıç",l2:"Orta",l3:"İleri",l4:"Ana dilim",multi:"İstediğin kadar seçebilirsin.",
   districts:"Hangi semtlerdeki etkinliklere katılmak isterdin?",times:"Hangi günler sana uyar?",
   t1:"Hafta içi akşam",t2:"Cumartesi akşam",t3:"Pazar akşam",t0:"Gündüz",any:"Fark etmez",
-  free:"Ücretsiz duyuru grubumuza katılıyorsun. Bu bir etkinlik kaydı değil; etkinlikler ve biletler grupta duyurulur. Onayın WhatsApp'tan gelir.",kvkkA:"Kişisel verilerin ",kvkkLink:"KVKK aydınlatma metni",kvkkB:" kapsamında işlenir.",
+  free:"Ücretsiz duyuru grubumuza katılıyorsun. Bu bir etkinlik kaydı değil; etkinlikler ve biletler grupta duyurulur.\nOnayın WhatsApp'tan gelir.",kvkkA:"Kişisel verilerin ",kvkkLink:"KVKK aydınlatma metni",kvkkB:" kapsamında işlenir.",
   kvkkText:"Girl Talk İzmir olarak ad soyad, WhatsApp numarası veya kullanıcı adı, İngilizce seviyesi, semt ve zaman tercihlerini; başvurunu değerlendirmek, kadınlara özel topluluk güvenliğini sağlamak, seni WhatsApp duyuru grubuna eklemek ve etkinlik planlamak amacıyla, talep ettiğin hizmeti sunmak için (KVKK m.5/2-c) işliyoruz. Veriler Google Sheets üzerinde saklanır (yurt dışında bulunan sunucular), üçüncü kişilerle paylaşılmaz ve en fazla 2 yıl tutulur. KVKK m.11 kapsamındaki haklarını kullanmak veya verilerinin silinmesini istemek için Instagram @girltalk.izmir hesabımıza yazabilirsin.",
-  send:"Gruba katıl",sending:"Gönderiliyor…",errReq:"Lütfen tüm alanları doldur, en az bir semt ve bir zaman seç.",errNet:"Bir sorun oldu, tekrar dener misin?",
-  hi:n=>`Hoş geldin${n?", "+n:""} 🤍`,doneText:"Artık Girl Talk'un bir parçasısın. Seni kısa süre içinde WhatsApp duyuru grubumuza ekliyoruz. İlk buluşmamızı orada duyuracağız, görüşmek üzere 🥂",ig:"Instagram'da bizi takip et"},
+  send:"Gruba katıl",sending:"Gönderiliyor…",errUser:"Kullanıcı adını kontrol eder misin? En az 3 karakter olmalı.",errPhone:"Numaranı kontrol eder misin? 5XX XXX XX XX şeklinde 10 hane olmalı.",errReq:"Lütfen tüm alanları doldur, en az bir semt ve bir zaman seç.",errNet:"Bir sorun oldu, tekrar dener misin?",
+  hi:n=>`Hoş geldin${n?", "+n:""} 🤍`,doneText:"Artık Girl Talk'un bir parçasısın. En kısa süre içinde seni WhatsApp duyuru grubumuza ekleyeceğiz. Buluşmalarımızı orada duyuracağız, görüşmek üzere 🥂",ig:"Instagram'da bizi takip et"},
  en:{title:"Join the community.",lead:"A women-only English speaking club, built around games. This form adds you to our WhatsApp announcement group. Joining events is entirely your choice, no commitment.",
   name:"What's your full name?",namePh:"Your first and last name",nameHint:"We can only add you with your real name, so please use your full name.",
-  phone:"How can we reach you on WhatsApp?",cNum:"Phone number",cUser:"Username",
+  phone:"How can we reach you on WhatsApp?",cNum:"Phone number",cUser:"Username",uPh:"@username",
   level:"What's your English level?",l1:"Beginner",l2:"Intermediate",l3:"Advanced",l4:"Native",multi:"Choose as many as you like.",
   districts:"Where would you like to join events?",times:"Which days work for you?",
   t1:"Weekday evening",t2:"Saturday evening",t3:"Sunday evening",t0:"Daytime",any:"Any",
-  free:"You're joining our free announcement group. This isn't an event sign-up; events and tickets are shared in the group. Your confirmation comes via WhatsApp.",kvkkA:"Your data is processed as described in our ",kvkkLink:"KVKK privacy notice",kvkkB:".",
+  free:"You're joining our free announcement group. This isn't an event sign-up; events and tickets are shared in the group.\nYour confirmation comes via WhatsApp.",kvkkA:"Your data is processed as described in our ",kvkkLink:"KVKK privacy notice",kvkkB:".",
   kvkkText:"Girl Talk İzmir processes your name, WhatsApp number or username, English level, area and time preferences, to provide the service you request (KVKK Art. 5/2-c): to review your application, keep our women-only community safe, add you to our WhatsApp announcement group and plan events. Data is stored in Google Sheets (servers located abroad), is never shared with third parties and is kept for up to 2 years. To exercise your rights under Turkish data protection law (KVKK Art. 11) or to request deletion, message us on Instagram @girltalk.izmir.",
-  send:"Join the group",sending:"Sending…",errReq:"Please fill in every field and pick at least one area and one time.",errNet:"Something went wrong, please try again.",
-  hi:n=>`Welcome${n?", "+n:""} 🤍`,doneText:"You're officially part of Girl Talk. We'll add you to our WhatsApp announcement group very soon. Our first meetup will be announced there, see you soon 🥂",ig:"Follow us on Instagram"}
+  send:"Join the group",sending:"Sending…",errUser:"Please check your username, it needs at least 3 characters.",errPhone:"Please check your number. Turkish numbers have 10 digits: 5XX XXX XX XX.",errReq:"Please fill in every field and pick at least one area and one time.",errNet:"Something went wrong, please try again.",
+  hi:n=>`Welcome${n?", "+n:""} 🤍`,doneText:"You're officially part of Girl Talk. We'll add you to our WhatsApp announcement group as soon as possible. Our meetups are announced there, see you soon 🥂",ig:"Follow us on Instagram"}
 };
 
 document.getElementById("districts").innerHTML=DISTRICTS.concat("Any").map(d=>`<label><input type="checkbox" name="districts" value="${d}"><span${d==="Any"?' data-t="any"':""}>${d}</span></label>`).join("");
@@ -244,6 +245,15 @@ function contact(){
   const v=ph.value.trim();if(!v)return{v:"",type:""};
   const n=v.replace(/[^\d+]/g,"").replace(/^0+/,"");
   return{v:cc.value==="+"||n.startsWith("+")?n:"+"+cc.value+n,type:"Numara"};}
+function phoneOk(){const c=contact();if(!c.v)return false;
+  if(ctype==="user")return /^@[A-Za-z0-9._]{3,30}$/.test(c.v);
+  const d=c.v.replace(/\D/g,"");
+  if(d.startsWith("90"))return /^905\d{9}$/.test(d);
+  return d.length>=8&&d.length<=15;}
+const phErr=document.getElementById("phErr");
+function showPhErr(){phErr.textContent=T[lang][ctype==="user"?"errUser":"errPhone"];phErr.hidden=false;}
+[ph,wau].forEach(i=>i.addEventListener("blur",()=>{const c=contact();if(c.v&&!phoneOk())showPhErr();else phErr.hidden=true;}));
+[ph,wau].forEach(i=>i.addEventListener("input",()=>{if(!phErr.hidden&&phoneOk())phErr.hidden=true;}));
 
 let lang=(navigator.language||"tr").toLowerCase().startsWith("tr")?"tr":"en";
 try{lang=localStorage.getItem("gt-lang")||lang}catch(e){}
@@ -256,7 +266,6 @@ function setLang(l){
 }
 document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.l));
 setLang(lang);
-if(matchMedia("(pointer:fine)").matches)document.getElementById("name").focus();
 document.getElementById("kvLink").onclick=e=>{e.preventDefault();const t=document.getElementById("kvText");t.hidden=!t.hidden;};
 
 const form=document.getElementById("form"),err=document.getElementById("err"),btn=form.querySelector(".send");
@@ -270,7 +279,7 @@ function celebrate(){
 // iOS-style feedback: haptic on select + CTA wakes up when form is complete
 const hap=document.createElement("label");hap.style.display="none";hap.innerHTML='<input type="checkbox" switch>';document.body.appendChild(hap);
 function tick(){try{if(navigator.vibrate)navigator.vibrate(8);else hap.click();}catch(e){}}
-function ready(){const c=contact();btn.classList.toggle("ready",!!(form.elements.name.value.trim()&&c.v.length>=3&&vals("level")&&vals("districts")&&vals("times")));}
+function ready(){const c=contact();btn.classList.toggle("ready",!!(form.elements.name.value.trim()&&phoneOk()&&vals("level")&&vals("districts")&&vals("times")));}
 form.addEventListener("change",e=>{if(e.target.closest(".chips"))tick();ready();});
 form.addEventListener("input",ready);
 document.querySelectorAll(".segc button").forEach(b=>b.addEventListener("click",()=>{tick();ready();}));
@@ -280,7 +289,8 @@ form.onsubmit=async e=>{
   e.preventDefault();err.textContent="";
   if(form.elements.website.value)return; // bot
   const ct=contact();const data={name:form.elements.name.value.trim(),phone:ct.v,ctype:ct.type,level:vals("level"),districts:vals("districts"),times:vals("times"),lang};
-  if(!data.name||data.phone.length<3||!data.level||!data.districts||!data.times){err.textContent=T[lang].errReq;return;}
+  if(!phoneOk()){showPhErr();ph.scrollIntoView({block:"center",behavior:"smooth"});return;}
+  if(!data.name||!data.level||!data.districts||!data.times){err.textContent=T[lang].errReq;return;}
   btn.disabled=true;btn.textContent=T[lang].sending;
   try{
     await fetch(ENDPOINT,{method:"POST",mode:"no-cors",body:new URLSearchParams(data)});
