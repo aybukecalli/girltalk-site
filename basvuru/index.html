@@ -179,11 +179,11 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
 
     <div class="card">
       <label class="q" for="phone" data-t="phone"></label>
+      <span class="hint" data-t="phHint"></span>
       <div class="segc" role="tablist"><button type="button" role="tab" class="on" data-v="num" data-t="cNum"></button><button type="button" role="tab" data-v="user" data-t="cUser"></button></div>
       <div class="tel" id="telBox"><select id="cc" aria-label="Country code"></select><input type="tel" id="phone" name="phone" autocomplete="tel-national" inputmode="tel" placeholder="5XX XXX XX XX"></div>
       <p class="ferr" id="phErr" data-t="errPhone" hidden></p>
       <input type="text" id="wauser" autocapitalize="off" autocorrect="off" spellcheck="false" data-ph="uPh" hidden>
-      <span class="hint uonly uh" data-t="phHint"></span>
       <button type="button" class="info uonly" aria-expanded="false" aria-controls="phInfo"><span data-t="phLink"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
       <div class="infoWrap uonly" id="phInfo"><p class="infoBox" data-t="phInfo"></p></div>
     </div>
@@ -239,21 +239,21 @@ const DISTRICTS = ["Karşıyaka","Bornova","Alsancak","Göztepe","Balçova","Çi
 const T = {
  tr:{title:"Topluluğa katıl.",lead:"Kadınlara özel, oyunlarla İngilizce konuşma kulübü. Bu formla WhatsApp duyuru grubumuza katılırsın. Etkinliklere katılmak tamamen senin kararın, hiçbir taahhüt yok.",
   name:"Adın soyadın ne?",namePh:"Adın ve soyadın",nameHint:"Gruba gerçek adınla ekleyebiliyoruz, lütfen tam adını yaz.",
-  phone:"WhatsApp numaran veya kullanıcı adın ne?",phHint:"WhatsApp'taki kullanıcı adını yaz, Instagram'daki değil.",phLink:"WhatsApp kullanıcı adımı nerede bulurum?",phInfo:"Kullanıcı adın varsa WhatsApp → Ayarlar → Profil bölümünde görünür. Yoksa numaranı yazman yeterli.",cNum:"Telefon numarası",cUser:"WhatsApp kullanıcı adı",uPh:"WhatsApp kullanıcı adın",
+  phone:"WhatsApp numaran veya kullanıcı adın ne?",phHint:"Numaranı ya da WhatsApp kullanıcı adını yazabilirsin.",phLink:"WhatsApp kullanıcı adımı nerede bulurum?",phInfo:"Kullanıcı adın varsa WhatsApp → Ayarlar → Profil bölümünde görünür.",cNum:"Telefon numarası",cUser:"WhatsApp kullanıcı adı",uPh:"WhatsApp kullanıcı adın",
   level:"İngilizce seviyen nedir?",l1:"Başlangıç",l2:"Orta",l3:"İleri",l4:"Ana dilim",multi:"İstediğin kadar seçebilirsin.",
   districts:"Hangi semtlerdeki etkinliklere katılmak isterdin?",times:"Hangi günler sana uyar?",
   t1:"Hafta içi akşam",t2:"Cumartesi akşam",t3:"Pazar akşam",t0:"Gündüz",any:"Fark etmez",
-  freeB:"Ücretsiz",freeH:"Girl Talk topluluğuna katıl",freeTag:"Ücretsiz katılım",free:"Eğlenerek İngilizce konuşma pratiği yap, etkinlik detaylarından ilk sen haberdar ol 🤍",kvkkA:"Kişisel verilerin ",kvkkLink:"KVKK aydınlatma metni",kvkkB:" kapsamında işlenir.",
+  freeB:"Ücretsiz",freeH:"Girl Talk topluluğuna katıl",freeTag:"Ücretsiz katılım",free:"İzmir'deki İngilizce konuşma etkinliklerimize katıl, etkinlik detaylarından anında haberdar ol 🤍",kvkkA:"Kişisel verilerin ",kvkkLink:"KVKK aydınlatma metni",kvkkB:" kapsamında işlenir.",
   kvkkText:"Girl Talk İzmir olarak ad soyad, WhatsApp numarası veya kullanıcı adı, İngilizce seviyesi, semt ve zaman tercihlerini; başvurunu değerlendirmek, kadınlara özel topluluk güvenliğini sağlamak, seni WhatsApp duyuru grubuna eklemek ve etkinlik planlamak amacıyla, talep ettiğin hizmeti sunmak için (KVKK m.5/2-c) işliyoruz. Veriler Google Sheets üzerinde saklanır (yurt dışında bulunan sunucular), üçüncü kişilerle paylaşılmaz ve en fazla 2 yıl tutulur. KVKK m.11 kapsamındaki haklarını kullanmak veya verilerinin silinmesini istemek için Instagram @girltalk.izmir hesabımıza yazabilirsin.",
   send:"Topluluğa katıl",sending:"Gönderiliyor…",errName:"Lütfen adını ve soyadını yaz.",errUser:"Kullanıcı adını kontrol eder misin? En az 3 karakter olmalı.",errPhone:"Numaranı kontrol eder misin? 5XX XXX XX XX şeklinde 10 hane olmalı.",errReq:"Lütfen tüm alanları doldur, en az bir semt ve bir zaman seç.",errNet:"Bir sorun oldu, tekrar dener misin?",
   home:"Anasayfaya dön",hi:n=>`Hoş geldin${n?", "+n:""} 🤍`,doneText:"Artık Girl Talk'un bir parçasısın. En kısa süre içinde seni WhatsApp duyuru grubumuza ekleyeceğiz. Buluşmalarımızı orada duyuracağız, görüşmek üzere 🥂",ig:"Instagram'da bizi takip et"},
  en:{title:"Join the community.",lead:"A women-only English speaking club, built around games. This form adds you to our WhatsApp announcement group. Joining events is entirely your choice, no commitment.",
   name:"What's your full name?",namePh:"Your first and last name",nameHint:"We can only add you with your real name, so please use your full name.",
-  phone:"What's your WhatsApp number or username?",phHint:"Type your WhatsApp username, not your Instagram one.",phLink:"Where do I find my WhatsApp username?",phInfo:"If you have a username, you can find it in WhatsApp → Settings → Profile. If not, your number is all we need.",cNum:"Phone number",cUser:"WhatsApp username",uPh:"Your WhatsApp username",
+  phone:"What's your WhatsApp number or username?",phHint:"You can enter your number or your WhatsApp username.",phLink:"Where do I find my WhatsApp username?",phInfo:"If you have a username, you can find it in WhatsApp → Settings → Profile.",cNum:"Phone number",cUser:"WhatsApp username",uPh:"Your WhatsApp username",
   level:"What's your English level?",l1:"Beginner",l2:"Intermediate",l3:"Advanced",l4:"Native",multi:"Choose as many as you like.",
   districts:"Where would you like to join events?",times:"Which days work for you?",
   t1:"Weekday evening",t2:"Saturday evening",t3:"Sunday evening",t0:"Daytime",any:"No preference",
-  freeB:"Free",freeH:"Join the Girl Talk community",freeTag:"Free to join",free:"Practise speaking English while having fun, and be the first to hear about events 🤍",kvkkA:"Your data is processed as described in our ",kvkkLink:"KVKK privacy notice",kvkkB:".",
+  freeB:"Free",freeH:"Join the Girl Talk community",freeTag:"Free to join",free:"Join our English speaking events in İzmir and get event details the moment they're out 🤍",kvkkA:"Your data is processed as described in our ",kvkkLink:"KVKK privacy notice",kvkkB:".",
   kvkkText:"Girl Talk İzmir processes your name, WhatsApp number or username, English level, area and time preferences, to provide the service you request (KVKK Art. 5/2-c): to review your application, keep our women-only community safe, add you to our WhatsApp announcement group and plan events. Data is stored in Google Sheets (servers located abroad), is never shared with third parties and is kept for up to 2 years. To exercise your rights under Turkish data protection law (KVKK Art. 11) or to request deletion, message us on Instagram @girltalk.izmir.",
   send:"Join the community",sending:"Sending…",errName:"Please enter your first and last name.",errUser:"Please check your username, it needs at least 3 characters.",errPhone:"Please check your number. Turkish numbers have 10 digits: 5XX XXX XX XX.",errReq:"Please fill in every field and pick at least one area and one time.",errNet:"Something went wrong, please try again.",
   home:"Back to home",hi:n=>`Welcome${n?", "+n:""} 🤍`,doneText:"You're officially part of Girl Talk. We'll add you to our WhatsApp announcement group as soon as possible. Our meetups are announced there, see you soon 🥂",ig:"Follow us on Instagram"}
