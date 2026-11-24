@@ -292,6 +292,10 @@ footer{padding:32px 0 calc(24px + env(safe-area-inset-bottom))}
 .wa{animation:waLoop 9s var(--ease) infinite both}
 .wa:nth-of-type(5){animation-delay:.5s}.wa:nth-of-type(4){animation-delay:1.5s}.wa:nth-of-type(3){animation-delay:2.5s}
 @keyframes waLoop{0%{opacity:0;transform:translateY(-18px) scale(.92)}6%{opacity:1;transform:translateY(2px) scale(1.01)}9%,82%{opacity:1;transform:none}90%,100%{opacity:0;transform:translateY(-6px) scale(.97)}}
+.wa{overflow:hidden;animation-name:waStack}
+@keyframes waStack{0%{opacity:0;max-height:0;margin-bottom:0;padding-top:0;padding-bottom:0;transform:translateY(-10px) scale(.94)}7%{opacity:1;max-height:80px;margin-bottom:6px;padding-top:8px;padding-bottom:8px;transform:none}84%{opacity:1;max-height:80px;margin-bottom:6px;padding-top:8px;padding-bottom:8px;transform:none}92%,100%{opacity:0;max-height:80px;margin-bottom:6px;padding-top:8px;padding-bottom:8px;transform:scale(.97)}}
+.logo-a{display:inline-flex;margin-right:auto}
+@media (min-width:960px){.hero{padding:48px 64px 0}.hero .txt{padding-bottom:48px}.hero h1{font-size:48px;margin-bottom:12px}.hero .lead{font-size:17px;margin-bottom:20px}.hero .cities{margin-bottom:20px}.hero~section:first-of-type,.hero+section{padding-top:56px}}
 @media (min-width:960px){.hero{align-items:stretch}.phone{height:auto;min-height:420px;align-self:stretch;margin:0 auto}}
 
 
@@ -302,7 +306,7 @@ footer{padding:32px 0 calc(24px + env(safe-area-inset-bottom))}
 <body>
 <div class="wrap">
   <header class="nav"><div class="nav-in glass">
-    <img class="logo" src="basvuru/logo.svg" alt="Girl Talk" width="88" height="23">
+    <a href="#hero" class="logo-a" onclick="scrollTo({top:0,behavior:'smooth'});return false" aria-label="Girl Talk"><img class="logo" src="basvuru/logo.svg" alt="Girl Talk" width="88" height="23"></a>
     <a class="btn" href="basvuru/" data-t="cta"></a>
     <div class="lang"><button type="button" data-l="tr">TR</button><button type="button" data-l="en">EN</button></div>
   </div></header>
@@ -364,7 +368,7 @@ footer{padding:32px 0 calc(24px + env(safe-area-inset-bottom))}
   </section>
 
   <section class="reveal">
-    <div class="mini glass reveal"><div><p data-t="miniT"></p><small data-t="miniL"></small></div><a class="btn sm" href="basvuru/"><span data-t="heroCta"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="mini glass reveal"><div><p data-t="miniT"></p><small data-h="miniL"></small></div><a class="btn sm" href="basvuru/"><span data-t="heroCta"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </section>
 
   <footer class="reveal">
@@ -385,7 +389,7 @@ q3:"Gruba katılmak ücretli mi?",a3:"<b>Hayır, tamamen ücretsiz.</b>",
 q4:"Yalnız gelebilir miyim?",a4:"<b>Elbette.</b> Moderatör seni karşılar, takımlar masada kurulur ✨",
 q5:"Detaylar ne zaman paylaşılıyor?",a5:"Tarih, saat ve kafe adresi <b>WhatsApp duyuru grubumuzda</b> paylaşılır 📍",
 q6:"Hangi şehirlerdesiniz?",a6:"<b>İzmir, İstanbul ve Ankara.</b> Buluşmalar şehir şehir grupta duyurulur.",
-miniT:"Etkinliklerden haberdar ol",miniL:"Ücretsiz WhatsApp duyuru grubumuza katıl, yeni buluşmaları ilk elden takip et 🤍"},
+miniT:"Etkinliklerden haberdar ol",miniL:"Ücretsiz WhatsApp duyuru grubumuza katıl, <br>yeni buluşma duyurularını kaçırma 🤍"},
 en:{badge:"WOMEN-ONLY",h1:"<em>English</em> speaking events in your city",lead:"An application-only English speaking community, just for girls. Put your English into practice, in a genuinely enjoyable setting ✨",heroCta:"Join the community",cta:"Join the community",
 date:"Sunday",t0:"now",t2:"2d ago",t4:"4d ago",n1:"📢 New meetup announced",n2:"🎟️ Tickets are open",n3:"🤍 Welcome, lovely to have you",
 howT:"How it works",s1:"Apply",s2:"Join the community",s3:"See you at the event",
@@ -396,7 +400,7 @@ q3:"Is joining the group free?",a3:"<b>Yes, completely free.</b>",
 q4:"Can I come alone?",a4:"<b>Of course.</b> Your moderator welcomes you and teams form at the table ✨",
 q5:"When are details shared?",a5:"Date, time and café address are shared in our <b>WhatsApp announcement group</b> 📍",
 q6:"Which cities?",a6:"<b>İzmir, İstanbul and Ankara.</b> Meetups are announced city by city in the group.",
-miniT:"Stay in the loop",miniL:"Join our free WhatsApp announcement group; events and tickets are shared there."}};
+miniT:"Stay in the loop",miniL:"Join our free WhatsApp announcement group,<br>never miss a new meetup 🤍"}};
 let lang=(navigator.language||"tr").toLowerCase().startsWith("tr")?"tr":"en";
 try{lang=localStorage.getItem("gt-lang")||lang}catch(e){}
 function setLang(l){
