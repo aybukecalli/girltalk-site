@@ -7,6 +7,9 @@
 <meta name="description" content="Girl Talk topluluğuna ücretsiz katıl, İzmir'deki İngilizce konuşma etkinliklerinin detaylarından anında haberdar ol.">
 <link rel="icon" type="image/png" href="favicon.png?v=13">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=13">
+<link rel="alternate" hreflang="tr" href="https://www.girltalk.com.tr/basvuru/">
+<link rel="alternate" hreflang="en" href="https://www.girltalk.com.tr/en/basvuru/">
+<link rel="alternate" hreflang="x-default" href="https://www.girltalk.com.tr/basvuru/">
 <link rel="canonical" href="https://www.girltalk.com.tr/basvuru/">
 <!-- Google Search Console: doğrulama kodunu aşağıya yapıştır ve yorum işaretlerini kaldır -->
 <!-- <meta name="google-site-verification" content="KODU_BURAYA"> -->
@@ -175,6 +178,7 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
 @media (max-width:389px){.freebox p{white-space:normal}}
 .nw{white-space:nowrap}.segc button{line-height:1.15}
 .fbh strong{white-space:nowrap;font-size:clamp(12.5px,3.8vw,15px)}@media (max-width:400px){.fbh{gap:6px}}
+@media (max-width:700px){.mwide{grid-column:1/-1}}
 </style>
 <script>(()=>{try{const k="gt-src";if(sessionStorage.getItem(k))return;const q=new URLSearchParams(location.search);const r=document.referrer&&!document.referrer.includes(location.host)?document.referrer:"";sessionStorage.setItem(k,JSON.stringify({s:q.get("utm_source")||"",m:q.get("utm_medium")||"",c:q.get("utm_campaign")||"",r}))}catch(e){}})();</script>
 <!-- Microsoft Clarity -->
@@ -278,7 +282,7 @@ const T = {
   home:"Back to home",hi:n=>`Welcome${n?", "+n:""} 🤍`,doneText:"You're officially part of Girl Talk. We'll add you to our WhatsApp community as soon as possible. Our events are announced there, see you soon 🤍",ig:"Follow us on Instagram"}
 };
 
-document.getElementById("districts").innerHTML=DISTRICTS.concat("Any").map(d=>`<label${d==="Any"?' class="wide"':""}><input type="checkbox" name="districts" value="${d}"><span${d==="Any"?' data-t="any"':""}>${d}</span></label>`).join("");
+document.getElementById("districts").innerHTML=DISTRICTS.concat("Any").map(d=>`<label${d==="Any"?' class="mwide"':""}><input type="checkbox" name="districts" value="${d}"><span${d==="Any"?' data-t="any"':""}>${d}</span></label>`).join("");
 
 const CC=[["🇹🇷","90"],["🇩🇪","49"],["🇬🇧","44"],["🇺🇸","1"],["🇮🇹","39"],["🇪🇸","34"],["🇫🇷","33"],["🇳🇱","31"],["🇧🇪","32"],["🇦🇹","43"],["🇨🇭","41"],["🇵🇱","48"],["🇵🇹","351"],["🇬🇷","30"],["🇧🇬","359"],["🇷🇴","40"],["🇸🇪","46"],["🇺🇦","380"],["🇷🇺","7"],["🇦🇿","994"],["🇮🇷","98"],["🇮🇳","91"],["🇧🇷","55"],["🇲🇽","52"],["🇪🇬","20"],["🇳🇬","234"],["🇨🇳","86"],["🇰🇷","82"],["🇯🇵","81"],["🌐","+"]];
 const cc=document.getElementById("cc");cc.innerHTML=CC.map(([f,c])=>`<option value="${c}">${f} ${c==="+"?"+…":"+"+c}</option>`).join("");
