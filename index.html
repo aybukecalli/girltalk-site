@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Girl Talk · Kadınlara özel İngilizce konuşma etkinlikleri</title>
 <meta name="description" content="Girl Talk: kadınlara özel, moderatör eşliğinde İngilizce konuşma etkinlikleri. İzmir’de başladı.">
-<link rel="icon" type="image/svg+xml" href="basvuru/logo.svg">
-<link rel="icon" type="image/png" href="basvuru/favicon.png">
-<link rel="apple-touch-icon" href="basvuru/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="basvuru/logo.svg?v=9">
+<link rel="icon" type="image/png" href="basvuru/favicon.png?v=9">
+<link rel="apple-touch-icon" href="basvuru/apple-touch-icon.png?v=9">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Girl Talk">
 <meta property="og:description" content="Kadınlara özel İngilizce konuşma etkinlikleri.">
@@ -295,13 +295,23 @@ footer{padding:32px 0 calc(24px + env(safe-area-inset-bottom))}
 .wa{overflow:hidden;animation-name:waStack}
 @keyframes waStack{0%{opacity:0;max-height:0;margin-bottom:0;padding-top:0;padding-bottom:0;transform:translateY(-10px) scale(.94)}7%{opacity:1;max-height:260px;margin-bottom:6px;padding-top:8px;padding-bottom:8px;transform:none}84%{opacity:1;max-height:260px;margin-bottom:6px;padding-top:8px;padding-bottom:8px;transform:none}92%,100%{opacity:0;max-height:260px;margin-bottom:6px;padding-top:8px;padding-bottom:8px;transform:scale(.97)}}
 .logo-a{display:inline-flex;margin-right:auto}
+.wa,.wa:nth-of-type(n){animation:none!important;opacity:0;max-height:0;margin-bottom:0;padding-top:0;padding-bottom:0;transform:translateY(-10px) scale(.94);transition:opacity .45s var(--ease),transform .55s var(--spring),max-height .55s var(--ease),margin .55s var(--ease),padding .55s var(--ease)}
+.wa.show{opacity:1;max-height:260px;margin-bottom:6px;padding-top:8px;padding-bottom:8px;transform:none}
+.wa.show.out{opacity:0;transform:scale(.97)}
+.hero+section{padding-top:32px}section:has(.mini){padding-top:56px}
+@media (min-width:960px){.hero+section{padding-top:72px}section:has(.mini){padding-top:96px}}
+
+@media (min-width:960px){.mini{justify-content:space-between;padding:24px 32px}}
+
 .evn{display:none!important}
 @media (min-width:960px){.evn{display:flex!important;align-items:flex-start}.evn>div{flex:1;min-width:0}
-.thumb{display:block!important;object-fit:cover;object-position:center 70%;width:100%;height:150px;margin:6px 0 6px;border-radius:10px;display:grid;place-items:center;color:var(--ivory);background:radial-gradient(70% 90% at 20% 10%,rgba(217,169,184,.7),transparent 70%),radial-gradient(60% 80% at 90% 100%,rgba(198,164,106,.6),transparent 70%),var(--bordo)}
+.thumb{display:block!important;object-fit:cover;object-position:center 70%;width:100%;height:124px;margin:6px 0 6px;border-radius:10px;display:grid;place-items:center;color:var(--ivory);background:radial-gradient(70% 90% at 20% 10%,rgba(217,169,184,.7),transparent 70%),radial-gradient(60% 80% at 90% 100%,rgba(198,164,106,.6),transparent 70%),var(--bordo)}
 .thumb b{font:italic 700 16px/1 var(--serif)}
 .wa:nth-of-type(6){animation-delay:.5s}.wa:nth-of-type(5){animation-delay:1.5s}.wa:nth-of-type(4){animation-delay:2.5s}.wa:nth-of-type(3){animation-delay:2.5s}.n1w{display:none!important}}
+.cities li.soon{background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;padding:0 4px;font-weight:500;color:var(--iv75);opacity:.7}
+.dk{display:none}@media (min-width:960px){.dk{display:inline}.mb{display:none}}
 
-@media (min-width:960px){.hero{padding:48px 64px 0}.hero .txt{padding-bottom:48px}.hero h1{font-size:48px;margin-bottom:12px}.hero .lead{font-size:17px;margin-bottom:20px}.hero .cities{margin-bottom:20px}.hero~section:first-of-type,.hero+section{padding-top:56px}}
+@media (min-width:960px){.hero{padding:48px 64px 0}.hero .txt{padding-bottom:48px}.hero h1{font-size:48px;margin-bottom:12px}.hero .lead{font-size:17px;margin-bottom:20px}.hero .cities{margin-bottom:20px}}
 @media (min-width:960px){.hero{align-items:stretch}.phone{height:auto;min-height:420px;align-self:stretch;margin:0 auto}}
 
 
@@ -312,7 +322,7 @@ footer{padding:32px 0 calc(24px + env(safe-area-inset-bottom))}
 <body>
 <div class="wrap">
   <header class="nav"><div class="nav-in glass">
-    <a href="#hero" class="logo-a" onclick="scrollTo({top:0,behavior:'smooth'});return false" aria-label="Girl Talk"><img class="logo" src="basvuru/logo.svg" alt="Girl Talk" width="88" height="23"></a>
+    <a href="#hero" class="logo-a" onclick="scrollTo({top:0,behavior:'smooth'});return false" aria-label="Girl Talk"><img class="logo" src="basvuru/logo.svg?v=9" alt="Girl Talk" width="88" height="23"></a>
     <a class="btn" href="basvuru/" data-t="cta"></a>
     <div class="lang"><button type="button" data-l="tr">TR</button><button type="button" data-l="en">EN</button></div>
   </div></header>
@@ -324,8 +334,7 @@ footer{padding:32px 0 calc(24px + env(safe-area-inset-bottom))}
       <p class="lead" data-t="lead"></p>
       <ul class="cities" aria-label="Şehirler">
         <li class="on"><i></i>İzmir</li>
-        <li class="on"><i></i>İstanbul</li>
-        <li class="on"><i></i>Ankara</li>
+        <li class="soon" data-t="soon"></li>
       </ul>
       <a class="btn light auto" href="basvuru/"><span data-t="heroCta"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
@@ -333,10 +342,10 @@ footer{padding:32px 0 calc(24px + env(safe-area-inset-bottom))}
       <span class="island"></span>
       <div class="date" data-t="date"></div>
       <div class="time">19:00</div>
-      <div class="wa evn"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2.4 1.2 4.6 3.1 6L5.5 21l4-2.1c.8.2 1.6.3 2.5.3 5 0 9-3.6 9-8s-4-8.2-9-8.2z"/></svg></span><div><p>Girl Talk İzmir 🤍 <span data-t="t0"></span></p><img class="thumb" src="basvuru/etkinlik.jpg" alt=""><small>📅 <span data-t="evD"></span></small><small>📍 <span data-t="evL"></span></small></div></div>
       <div class="wa n1w"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2.4 1.2 4.6 3.1 6L5.5 21l4-2.1c.8.2 1.6.3 2.5.3 5 0 9-3.6 9-8s-4-8.2-9-8.2z"/></svg></span><div><p>Girl Talk İzmir 🤍 <span data-t="t1"></span></p><small><span data-t="n1"></span></small></div></div>
-      <div class="wa"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2.4 1.2 4.6 3.1 6L5.5 21l4-2.1c.8.2 1.6.3 2.5.3 5 0 9-3.6 9-8s-4-8.2-9-8.2z"/></svg></span><div><p>Girl Talk İzmir 🤍 <span data-t="t2"></span></p><small><span data-t="n2"></span></small></div></div>
-      <div class="wa"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2.4 1.2 4.6 3.1 6L5.5 21l4-2.1c.8.2 1.6.3 2.5.3 5 0 9-3.6 9-8s-4-8.2-9-8.2z"/></svg></span><div><p>Girl Talk İzmir 🤍 <span data-t="t4"></span></p><small><span data-t="n3"></span></small></div></div>
+      <div class="wa"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2.4 1.2 4.6 3.1 6L5.5 21l4-2.1c.8.2 1.6.3 2.5.3 5 0 9-3.6 9-8s-4-8.2-9-8.2z"/></svg></span><div><p>Girl Talk İzmir 🤍 <span class="mb" data-t="t2"></span><span class="dk" data-t="t0"></span></p><small><span data-t="n2"></span></small></div></div>
+      <div class="wa"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2.4 1.2 4.6 3.1 6L5.5 21l4-2.1c.8.2 1.6.3 2.5.3 5 0 9-3.6 9-8s-4-8.2-9-8.2z"/></svg></span><div><p>Girl Talk İzmir 🤍 <span class="mb" data-t="t4"></span><span class="dk" data-t="t1"></span></p><small><span data-t="n3"></span></small></div></div>
+      <div class="wa evn"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2.4 1.2 4.6 3.1 6L5.5 21l4-2.1c.8.2 1.6.3 2.5.3 5 0 9-3.6 9-8s-4-8.2-9-8.2z"/></svg></span><div><p>Girl Talk İzmir 🤍 <span data-t="te"></span></p><img class="thumb" src="basvuru/etkinlik.jpg?v=9" alt=""><small>📅 <span data-t="evD"></span></small><small>📍 <span data-t="evL"></span></small></div></div>
     </div></div>
   </div>
 
@@ -344,7 +353,7 @@ footer{padding:32px 0 calc(24px + env(safe-area-inset-bottom))}
   <section class="reveal">
     <h2 data-t="bT"></h2>
     <div class="bento">
-      <div class="bx mod1"><span class="mav"><img src="basvuru/moderator.jpg" alt="Moderatör"><i></i></span><div><b data-t="x1"></b><p data-h="x1d"></p></div></div>
+      <div class="bx mod1"><span class="mav"><img src="basvuru/moderator.jpg?v=9" alt="Moderatör"><i></i></span><div><b data-t="x1"></b><p data-h="x1d"></p></div></div>
       <div class="bx"><span class="sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><b data-t="x2"></b><p data-t="x2d"></p></div>
       <div class="bx"><span class="sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12c0 4-3.6 7-8 7-1.2 0-2.3-.2-3.3-.6L4 20l1.2-3.6C4.4 15.2 4 13.6 4 12c0-4 3.6-7 8-7s8 3 8 7z"/><path d="M9 12h.01M12 12h.01M15 12h.01"/></svg></span><b data-t="x3"></b><p data-t="x3d"></p></div>
     </div>
@@ -386,27 +395,27 @@ footer{padding:32px 0 calc(24px + env(safe-area-inset-bottom))}
 
 <script>
 const T={
-tr:{badge:"WOMEN-ONLY",h1:"Şehrinde <em>İngilizce</em> konuşma etkinlikleri",lead:"Başvuruyla katılınan, sadece kızlardan oluşan bir İngilizce konuşma topluluğu. Keyifli bir atmosferde İngilizceni konuşarak pratiğe dök ✨",heroCta:"Topluluğa katıl",cta:"Topluluğa katıl",
-date:"Pazar",t0:"şimdi",t1:"1s önce",t2:"2g önce",t4:"4g önce",n1:"📢 Yeni buluşma duyuruldu",evD:"Pazar · 20:00–22:00",evL:"Mavişehir, İzmir",n2:"🎟️ Biletler önce gruba açıldı",n3:"🤍 Aramıza hoş geldin",
+tr:{badge:"WOMEN-ONLY",h1:"İzmir'de <em>İngilizce</em> konuşma etkinlikleri",soon:"Yakında: İstanbul · Ankara",lead:"Başvuruyla katılınan, sadece kızlardan oluşan bir İngilizce konuşma topluluğu. Keyifli bir atmosferde İngilizceni konuşarak pratiğe dök ✨",heroCta:"Topluluğa katıl",cta:"Topluluğa katıl",
+date:"Pazar",t0:"şimdi",te:"2s önce",t1:"1s önce",t2:"2g önce",t4:"4g önce",n1:"📢 Yeni buluşma duyuruldu",evD:"Pazar · 20:00–22:00",evL:"Mavişehir, İzmir",n2:"🎟️ Biletler önce gruba açıldı",n3:"🤍 Aramıza hoş geldin",
 howT:"Nasıl çalışır?",s1:"Başvur",s2:"Topluluğa katıl",s3:"Etkinlikte görüşelim",
-faqT:"Sık sorulan sorular",modT:"Baştan sona moderatör eşliğinde",b1:"Speaking",b2:"Listening",b3:"Yeni kelimeler",b4:"Kalıplar",b5:"Telaffuz",b6:"Günlük ifadeler",b7:"Özgüven",g1:"Başvurular tek tek onaylanır",g1d:"Her başvuruyu moderatör inceler. Topluluk sadece kızlardan oluşur.",g2:"Hiç yalnız kalmazsın",g2d:"WhatsApp grubunu da etkinlikleri de bir moderatör yönetir. Ne yapacağını adım adım anlatır; her dakikan konuşmaya gider.",g3:"Mükemmel İngilizce gerekmez",g3d:"Amacımız konuşarak ve dinleyerek pratik yapmak; burada denemek yeterli, hata yapmak serbest. Kendini az çok ifade edebiliyorsan, için rahat gel.",igT:"Instagram hesabımız",bT:"Etkinlik deneyimi",x1tag:"MODERATÖR EŞLİĞİNDE",x1:"Moderatör hep yanında",x1d:"Etkinlik boyunca aranızda olur,<br>akışı moderate eder.",x2:"Şehrinin kafelerinde",x2d:"Mekân adresi, tarih ve saat günler öncesinden duyurularda paylaşılır.",x3:"Mükemmel İngilizce gerekmez",x3d:"Pratik için buradayız; denemek yeterli, hata yapmak serbest.",x4:"Faydaları",q9:"Etkinlikler nerede oluyor?",a9:"<b>Şehrindeki kafelerde.</b> Adres, tarih ve saat günler öncesinden grupta duyurulur ☕",q7:"Güvenli mi, nasıl kontrol ediliyor?",a7:"<b>Her başvuru moderatör onayından geçer.</b> Grup ve tüm etkinlikler baştan sona moderatör takibinde.",
+faqT:"Sık sorulan sorular",modT:"Baştan sona moderatör eşliğinde",b1:"Speaking",b2:"Listening",b3:"Yeni kelimeler",b4:"Kalıplar",b5:"Telaffuz",b6:"Günlük ifadeler",b7:"Özgüven",g1:"Başvurular tek tek onaylanır",g1d:"Her başvuruyu moderatör inceler. Topluluk sadece kızlardan oluşur.",g2:"Hiç yalnız kalmazsın",g2d:"WhatsApp grubunu da etkinlikleri de bir moderatör yönetir. Ne yapacağını adım adım anlatır; her dakikan konuşmaya gider.",g3:"Mükemmel İngilizce gerekmez",g3d:"Amacımız konuşarak ve dinleyerek pratik yapmak; burada denemek yeterli, hata yapmak serbest. Kendini az çok ifade edebiliyorsan, için rahat gel.",igT:"Instagram hesabımız",bT:"Etkinlik deneyimi",x1tag:"MODERATÖR EŞLİĞİNDE",x1:"Moderatör hep yanında",x1d:"Etkinlik boyunca aranızda olur,<br>akışı moderate eder.",x2:"İzmir'in kafelerinde",x2d:"Mekân adresi, tarih ve saat günler öncesinden duyurularda paylaşılır.",x3:"Mükemmel İngilizce gerekmez",x3d:"Pratik için buradayız; denemek yeterli, hata yapmak serbest.",x4:"Faydaları",q9:"Etkinlikler nerede oluyor?",a9:"<b>İzmir'deki kafelerde.</b> Adres, tarih ve saat günler öncesinden grupta duyurulur ☕",q7:"Güvenli mi, nasıl kontrol ediliyor?",a7:"<b>Her başvuru moderatör onayından geçer.</b> Grup ve tüm etkinlikler baştan sona moderatör takibinde.",
 q1:"Seviyem fark eder mi?",a1:"<b>Mükemmel İngilizce gerekmez.</b> Burası pratik alanı; denemen yeterli. Kendini az çok ifade edebiliyorsan, A2’den C2’ye tüm kızlara yer var 🤍",
 q2:"Etkinlik fiyatı ne kadar?",a2:"<b>350 TL.</b> Şimdilik indirimli; güncel fiyat grupta 🍷",
 q3:"Gruba katılmak ücretli mi?",a3:"<b>Hayır, tamamen ücretsiz.</b>",
 q4:"Yalnız gelebilir miyim?",a4:"<b>Elbette.</b> Moderatör seni karşılar, takımlar masada kurulur ✨",
 q5:"Detaylar ne zaman paylaşılıyor?",a5:"Tarih, saat ve kafe adresi <b>WhatsApp duyuru grubumuzda</b> paylaşılır 📍",
-q6:"Hangi şehirlerdesiniz?",a6:"<b>İzmir, İstanbul ve Ankara.</b> Buluşmalar şehir şehir grupta duyurulur.",
+q6:"Hangi şehirdesiniz?",a6:"<b>Şu an sadece İzmir'deyiz.</b> Topluluk ve tüm buluşmalar İzmir'de. İstanbul ve Ankara yakında.",
 miniT:"Etkinliklerden haberdar ol",miniL:"Ücretsiz WhatsApp duyuru grubumuza katıl, <br>yeni buluşma duyurularını kaçırma 🤍"},
-en:{badge:"WOMEN-ONLY",h1:"<em>English</em> speaking events in your city",lead:"An application-only English speaking community, just for girls. Put your English into practice, in a genuinely enjoyable setting ✨",heroCta:"Join the community",cta:"Join the community",
-date:"Sunday",t0:"now",t1:"1h ago",t2:"2d ago",t4:"4d ago",n1:"📢 New meetup announced",evD:"Sunday · 20:00–22:00",evL:"Mavişehir, İzmir",n2:"🎟️ Tickets are open",n3:"🤍 Welcome, lovely to have you",
+en:{badge:"WOMEN-ONLY",h1:"<em>English</em> speaking events in İzmir",soon:"Coming soon: İstanbul · Ankara",lead:"An application-only English speaking community, just for girls. Put your English into practice, in a genuinely enjoyable setting ✨",heroCta:"Join the community",cta:"Join the community",
+date:"Sunday",t0:"now",te:"2h ago",t1:"1h ago",t2:"2d ago",t4:"4d ago",n1:"📢 New meetup announced",evD:"Sunday · 20:00–22:00",evL:"Mavişehir, İzmir",n2:"🎟️ Tickets are open",n3:"🤍 Welcome, lovely to have you",
 howT:"How it works",s1:"Apply",s2:"Join the community",s3:"See you at the event",
-faqT:"FAQ",modT:"Moderator-led, start to finish",b1:"Speaking",b2:"Listening",b3:"New words",b4:"Phrases",b5:"Pronunciation",b6:"Everyday English",b7:"Confidence",g1:"Every application is reviewed",g1d:"A moderator reviews each one. The community is girls only.",g2:"You’re never on your own",g2d:"A moderator runs both the WhatsApp group and every event, and walks you through each step, so every minute goes to speaking.",g3:"No perfect English needed",g3d:"We’re here to practise speaking and listening; trying is enough and mistakes are welcome. If you can get your point across, come as you are.",igT:"Our Instagram",bT:"The event experience",x1tag:"MODERATOR-LED",x1:"A moderator by your side",x1d:"She’s there from start to finish,<br>and moderates the flow.",x2:"At cafés in your city",x2d:"Venue, date and time are shared in announcements days in advance.",x3:"No perfect English needed",x3d:"We’re here to practise; trying is enough and mistakes are welcome.",x4:"Benefits",q9:"Where do events take place?",a9:"<b>At cafés in your city.</b> Address, date and time are announced in the group days in advance ☕",q7:"Is it safe? How is it checked?",a7:"<b>Every application is approved by a moderator.</b> The group and all events are moderated from start to finish.",
+faqT:"FAQ",modT:"Moderator-led, start to finish",b1:"Speaking",b2:"Listening",b3:"New words",b4:"Phrases",b5:"Pronunciation",b6:"Everyday English",b7:"Confidence",g1:"Every application is reviewed",g1d:"A moderator reviews each one. The community is girls only.",g2:"You’re never on your own",g2d:"A moderator runs both the WhatsApp group and every event, and walks you through each step, so every minute goes to speaking.",g3:"No perfect English needed",g3d:"We’re here to practise speaking and listening; trying is enough and mistakes are welcome. If you can get your point across, come as you are.",igT:"Our Instagram",bT:"The event experience",x1tag:"MODERATOR-LED",x1:"A moderator by your side",x1d:"She’s there from start to finish,<br>and moderates the flow.",x2:"At cafés in İzmir",x2d:"Venue, date and time are shared in announcements days in advance.",x3:"No perfect English needed",x3d:"We’re here to practise; trying is enough and mistakes are welcome.",x4:"Benefits",q9:"Where do events take place?",a9:"<b>At cafés in İzmir.</b> Address, date and time are announced in the group days in advance ☕",q7:"Is it safe? How is it checked?",a7:"<b>Every application is approved by a moderator.</b> The group and all events are moderated from start to finish.",
 q1:"Does my level matter?",a1:"<b>No perfect English needed.</b> This is a space to practise; trying is enough. If you can express yourself, girls from A2 to C2 are all welcome 🤍",
 q2:"How much is a meetup?",a2:"<b>350 TL.</b> Discounted for now; current price in the group 🍷",
 q3:"Is joining the group free?",a3:"<b>Yes, completely free.</b>",
 q4:"Can I come alone?",a4:"<b>Of course.</b> Your moderator welcomes you and teams form at the table ✨",
 q5:"When are details shared?",a5:"Date, time and café address are shared in our <b>WhatsApp announcement group</b> 📍",
-q6:"Which cities?",a6:"<b>İzmir, İstanbul and Ankara.</b> Meetups are announced city by city in the group.",
+q6:"Which city are you in?",a6:"<b>We're in İzmir only, for now.</b> The community and all meetups are in İzmir. İstanbul and Ankara are coming soon.",
 miniT:"Stay in the loop",miniL:"Join our free WhatsApp announcement group,<br>never miss a new meetup 🤍"}};
 let lang=(navigator.language||"tr").toLowerCase().startsWith("tr")?"tr":"en";
 try{lang=localStorage.getItem("gt-lang")||lang}catch(e){}
@@ -422,6 +431,11 @@ setLang(lang);
 document.querySelectorAll(".btn").forEach(b=>b.addEventListener("pointermove",e=>{const r=b.getBoundingClientRect();b.style.setProperty("--x",(e.clientX-r.left)+"px");b.style.setProperty("--y",(e.clientY-r.top)+"px")}));
 document.querySelectorAll(".btn").forEach(b=>b.addEventListener("pointerdown",e=>{const r=b.getBoundingClientRect(),d=document.createElement("span");d.className="rp";d.style.left=(e.clientX-r.left)+"px";d.style.top=(e.clientY-r.top)+"px";b.appendChild(d);setTimeout(()=>d.remove(),650)}));
 document.querySelectorAll('.faq details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)document.querySelectorAll('.faq details[open]').forEach(o=>{if(o!==d)o.open=false})}));
+(()=>{const all=[...document.querySelectorAll('.wa')];const S=ms=>new Promise(r=>setTimeout(r,ms));
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){all.forEach(w=>w.classList.add('show'));return}
+(async function loop(){const ws=all.filter(w=>getComputedStyle(w).display!=='none');await S(500);
+for(const w of ws.slice().reverse()){w.classList.add('show');await S(900)}await S(3000);
+ws.forEach(w=>w.classList.add('out'));await S(500);all.forEach(w=>w.classList.remove('show','out'));await S(700);loop()})()})();
 const io=new IntersectionObserver(es=>es.forEach(e=>{e.target.classList.toggle("in",e.isIntersecting)}),{threshold:.12,rootMargin:"0px 0px -8% 0px"});
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 </script>
