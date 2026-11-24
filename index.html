@@ -456,7 +456,7 @@ q4:"Can I come alone?",a4:"<b>Of course.</b> Your moderator welcomes you, so you
 q5:"When are details shared?",a5:"Date, time and café address are shared in our <b>WhatsApp community</b> 📍",
 q6:"Which city are you in?",a6:"<b>We're in İzmir only, for now.</b> The community and all events are in İzmir. İstanbul and Ankara are coming soon.",
 miniT:"Stay in the loop",miniL:"Join our free community,<br>get event details the moment they're out 🤍"}};
-let lang=/bot|crawl|spider|lighthouse/i.test(navigator.userAgent)?"tr":((navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||"tr"]).some(x=>/^tr/i.test(x))?"tr":"en");
+let lang=/bot|crawl|spider|lighthouse/i.test(navigator.userAgent)?"tr":(/^tr/i.test((navigator.languages&&navigator.languages[0])||navigator.language||"tr")?"tr":"en");
 try{lang=localStorage.getItem("gt-lang")||lang}catch(e){}
 function setLang(l){
   lang=l;document.documentElement.lang=l;

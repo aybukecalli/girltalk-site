@@ -321,7 +321,7 @@ function showPhErr(){phErr.textContent=T[lang][ctype==="user"?"errUser":"errPhon
 [ph,wau].forEach(i=>i.addEventListener("blur",()=>{const c=contact();if(c.v&&!phoneOk())showPhErr();else phErr.hidden=true;}));
 [ph,wau].forEach(i=>i.addEventListener("input",()=>{if(!phErr.hidden&&phoneOk())phErr.hidden=true;}));
 
-let lang=/bot|crawl|spider|lighthouse/i.test(navigator.userAgent)?"tr":((navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||"tr"]).some(x=>/^tr/i.test(x))?"tr":"en");
+let lang=/bot|crawl|spider|lighthouse/i.test(navigator.userAgent)?"tr":(/^tr/i.test((navigator.languages&&navigator.languages[0])||navigator.language||"tr")?"tr":"en");
 try{lang=localStorage.getItem("gt-lang")||lang}catch(e){}
 function setLang(l){
   lang=l;document.documentElement.lang=l;
