@@ -172,7 +172,9 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
 .nav .lang{background:rgba(30,18,20,.07);box-shadow:none;padding:3px}
 .nav .lang button{height:32px;min-width:36px;color:#6E5A60}
 .nav .lang button.on{background:#fff;color:var(--bordo);box-shadow:0 1px 3px rgba(64,21,34,.15)}
-@media (max-width:389px){.freebox p{white-space:normal}}
+@media (max-width:389px){.freebox p{white-space:normal;text-wrap:balance}}
+.nw{white-space:nowrap}.segc button{line-height:1.15}
+.fbh strong{white-space:nowrap;font-size:clamp(12.5px,3.8vw,15px)}@media (max-width:400px){.fbh{gap:6px}}
 </style>
 <script>(()=>{try{const k="gt-src";if(sessionStorage.getItem(k))return;const q=new URLSearchParams(location.search);const r=document.referrer&&!document.referrer.includes(location.host)?document.referrer:"";sessionStorage.setItem(k,JSON.stringify({s:q.get("utm_source")||"",m:q.get("utm_medium")||"",c:q.get("utm_campaign")||"",r}))}catch(e){}})();</script>
 <!-- Microsoft Clarity -->
@@ -197,7 +199,7 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
     <div class="card">
       <label class="q" for="phone" data-t="phone"></label>
       <span class="hint" data-t="phHint"></span>
-      <div class="segc" role="tablist"><button type="button" role="tab" class="on" data-v="num" data-t="cNum"></button><button type="button" role="tab" data-v="user" data-t="cUser"></button></div>
+      <div class="segc" role="tablist"><button type="button" role="tab" class="on" data-v="num" data-t="cNum"></button><button type="button" role="tab" data-v="user"><span data-t="cUserA"></span> <span class="nw" data-t="cUserB"></span></button></div>
       <div class="tel" id="telBox"><select id="cc" aria-label="Country code"></select><input type="tel" id="phone" data-clarity-mask="true" name="phone" autocomplete="tel-national" inputmode="tel" placeholder="5XX XXX XX XX"></div>
       <p class="ferr" id="phErr" data-t="errPhone" hidden></p>
       <input type="text" id="wauser" data-clarity-mask="true" autocapitalize="off" autocorrect="off" spellcheck="false" data-ph="uPh" hidden>
@@ -256,7 +258,7 @@ const DISTRICTS = ["Karşıyaka","Bornova","Alsancak","Göztepe","Balçova","Çi
 const T = {
  tr:{title:"Topluluğa katıl.",lead:"Kadınlara özel, oyunlarla İngilizce konuşma kulübü. Bu formla WhatsApp topluluğumuza katılırsın. Etkinliklere katılmak tamamen senin kararın, hiçbir taahhüt yok.",
   name:"Adın soyadın ne?",namePh:"Adın ve soyadın",nameHint:"Topluluğa gerçek adınla ekleyebiliyoruz, lütfen tam adını yaz.",
-  phone:"WhatsApp numaran veya kullanıcı adın ne?",phHint:"Numaranı ya da WhatsApp kullanıcı adını yazabilirsin. Numaran ve kullanıcı adın topluluktaki diğer üyelere görünmez 🤍",phLink:"WhatsApp kullanıcı adımı nerede bulurum?",phInfo:"Önceden WhatsApp kullanıcı adı oluşturduysan WhatsApp → Ayarlar → Profil bölümünde görünür.",cNum:"Telefon numarası",cUser:"WhatsApp kullanıcı adı",uPh:"WhatsApp kullanıcı adın",
+  phone:"WhatsApp numaran veya kullanıcı adın ne?",phHint:"Numaranı ya da WhatsApp kullanıcı adını yazabilirsin. Numaran ve kullanıcı adın topluluktaki diğer üyelere görünmez 🤍",phLink:"WhatsApp kullanıcı adımı nerede bulurum?",phInfo:"Önceden WhatsApp kullanıcı adı oluşturduysan WhatsApp → Ayarlar → Profil bölümünde görünür.",cNum:"Telefon numarası",cUser:"WhatsApp kullanıcı adı",cUserA:"WhatsApp",cUserB:"kullanıcı adı",uPh:"WhatsApp kullanıcı adın",
   level:"İngilizce seviyen nedir?",l1:"Başlangıç",l2:"Orta",l3:"İleri",l4:"Ana dilim",multi:"İstediğin kadar seçebilirsin.",
   districts:"Hangi semtlerdeki etkinliklere katılmak isterdin?",times:"Hangi günler sana uyar?",
   t1:"Hafta içi akşam",t2:"Cumartesi akşam",t3:"Pazar akşam",t0:"Gündüz",any:"Fark etmez",
@@ -266,7 +268,7 @@ const T = {
   home:"Anasayfaya dön",hi:n=>`Hoş geldin${n?", "+n:""} 🤍`,doneText:"Artık Girl Talk'un bir parçasısın. En kısa süre içinde seni WhatsApp topluluğumuza ekleyeceğiz. Etkinliklerimizi orada duyuracağız, görüşmek üzere 🤍",ig:"Instagram'da bizi takip et"},
  en:{title:"Join the community.",lead:"A women-only English speaking club, built around games. This form adds you to our WhatsApp community. Joining events is entirely your choice, no commitment.",
   name:"What's your full name?",namePh:"Your first and last name",nameHint:"We can only add you with your real name, so please use your full name.",
-  phone:"What's your WhatsApp number or username?",phHint:"You can enter your number or your WhatsApp username. Your number and username stay hidden from other community members 🤍",phLink:"Where do I find my WhatsApp username?",phInfo:"If you've already created a WhatsApp username, you can find it in WhatsApp → Settings → Profile.",cNum:"Phone number",cUser:"WhatsApp username",uPh:"Your WhatsApp username",
+  phone:"What's your WhatsApp number or username?",phHint:"You can enter your number or your WhatsApp username. Your number and username stay hidden from other community members 🤍",phLink:"Where do I find my WhatsApp username?",phInfo:"If you've already created a WhatsApp username, you can find it in WhatsApp → Settings → Profile.",cNum:"Phone number",cUser:"WhatsApp username",cUserA:"WhatsApp",cUserB:"username",uPh:"Your WhatsApp username",
   level:"What's your English level?",l1:"Beginner",l2:"Intermediate",l3:"Advanced",l4:"Native",multi:"Choose as many as you like.",
   districts:"Where would you like to join events?",times:"Which days work for you?",
   t1:"Weekday evening",t2:"Saturday evening",t3:"Sunday evening",t0:"Daytime",any:"No preference",
@@ -276,7 +278,7 @@ const T = {
   home:"Back to home",hi:n=>`Welcome${n?", "+n:""} 🤍`,doneText:"You're officially part of Girl Talk. We'll add you to our WhatsApp community as soon as possible. Our events are announced there, see you soon 🤍",ig:"Follow us on Instagram"}
 };
 
-document.getElementById("districts").innerHTML=DISTRICTS.concat("Any").map(d=>`<label><input type="checkbox" name="districts" value="${d}"><span${d==="Any"?' data-t="any"':""}>${d}</span></label>`).join("");
+document.getElementById("districts").innerHTML=DISTRICTS.concat("Any").map(d=>`<label${d==="Any"?' class="wide"':""}><input type="checkbox" name="districts" value="${d}"><span${d==="Any"?' data-t="any"':""}>${d}</span></label>`).join("");
 
 const CC=[["🇹🇷","90"],["🇩🇪","49"],["🇬🇧","44"],["🇺🇸","1"],["🇮🇹","39"],["🇪🇸","34"],["🇫🇷","33"],["🇳🇱","31"],["🇧🇪","32"],["🇦🇹","43"],["🇨🇭","41"],["🇵🇱","48"],["🇵🇹","351"],["🇬🇷","30"],["🇧🇬","359"],["🇷🇴","40"],["🇸🇪","46"],["🇺🇦","380"],["🇷🇺","7"],["🇦🇿","994"],["🇮🇷","98"],["🇮🇳","91"],["🇧🇷","55"],["🇲🇽","52"],["🇪🇬","20"],["🇳🇬","234"],["🇨🇳","86"],["🇰🇷","82"],["🇯🇵","81"],["🌐","+"]];
 const cc=document.getElementById("cc");cc.innerHTML=CC.map(([f,c])=>`<option value="${c}">${f} ${c==="+"?"+…":"+"+c}</option>`).join("");
@@ -315,7 +317,7 @@ function showPhErr(){phErr.textContent=T[lang][ctype==="user"?"errUser":"errPhon
 [ph,wau].forEach(i=>i.addEventListener("blur",()=>{const c=contact();if(c.v&&!phoneOk())showPhErr();else phErr.hidden=true;}));
 [ph,wau].forEach(i=>i.addEventListener("input",()=>{if(!phErr.hidden&&phoneOk())phErr.hidden=true;}));
 
-let lang="tr";
+let lang=/bot|crawl|spider|lighthouse/i.test(navigator.userAgent)?"tr":((navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||"tr"]).some(x=>/^tr/i.test(x))?"tr":"en");
 try{lang=localStorage.getItem("gt-lang")||lang}catch(e){}
 function setLang(l){
   lang=l;document.documentElement.lang=l;
