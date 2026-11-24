@@ -203,6 +203,7 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
   <div class="ring">✓</div>
   <h2 id="doneTitle"></h2>
   <p data-t="doneText"></p>
+  <a class="igbtn" href="/"><span data-t="home"></span></a>
   <img class="dlogo" src="logo.svg" alt="Girl Talk" width="96" height="25">
 </div>
 
@@ -219,20 +220,20 @@ const T = {
   level:"İngilizce seviyen nedir?",l1:"Başlangıç",l2:"Orta",l3:"İleri",l4:"Ana dilim",multi:"İstediğin kadar seçebilirsin.",
   districts:"Hangi semtlerdeki etkinliklere katılmak isterdin?",times:"Hangi günler sana uyar?",
   t1:"Hafta içi akşam",t2:"Cumartesi akşam",t3:"Pazar akşam",t0:"Gündüz",any:"Fark etmez",
-  free:"Ücretsiz WhatsApp duyuru grubumuza katılıyorsun.\nEtkinlikler ve biletler orada duyurulur.",kvkkA:"Kişisel verilerin ",kvkkLink:"KVKK aydınlatma metni",kvkkB:" kapsamında işlenir.",
+  free:"Ücretsiz WhatsApp duyuru grubumuza katılıyorsun. Etkinlikler ve biletler orada duyurulur.",kvkkA:"Kişisel verilerin ",kvkkLink:"KVKK aydınlatma metni",kvkkB:" kapsamında işlenir.",
   kvkkText:"Girl Talk İzmir olarak ad soyad, WhatsApp numarası veya kullanıcı adı, İngilizce seviyesi, semt ve zaman tercihlerini; başvurunu değerlendirmek, kadınlara özel topluluk güvenliğini sağlamak, seni WhatsApp duyuru grubuna eklemek ve etkinlik planlamak amacıyla, talep ettiğin hizmeti sunmak için (KVKK m.5/2-c) işliyoruz. Veriler Google Sheets üzerinde saklanır (yurt dışında bulunan sunucular), üçüncü kişilerle paylaşılmaz ve en fazla 2 yıl tutulur. KVKK m.11 kapsamındaki haklarını kullanmak veya verilerinin silinmesini istemek için Instagram @girltalk.izmir hesabımıza yazabilirsin.",
   send:"Gruba katıl",sending:"Gönderiliyor…",errName:"Lütfen adını ve soyadını yaz.",errUser:"Kullanıcı adını kontrol eder misin? En az 3 karakter olmalı.",errPhone:"Numaranı kontrol eder misin? 5XX XXX XX XX şeklinde 10 hane olmalı.",errReq:"Lütfen tüm alanları doldur, en az bir semt ve bir zaman seç.",errNet:"Bir sorun oldu, tekrar dener misin?",
-  hi:n=>`Hoş geldin${n?", "+n:""} 🤍`,doneText:"Artık Girl Talk'un bir parçasısın. En kısa süre içinde seni WhatsApp duyuru grubumuza ekleyeceğiz. Buluşmalarımızı orada duyuracağız, görüşmek üzere 🥂",ig:"Instagram'da bizi takip et"},
+  home:"Anasayfaya dön",hi:n=>`Hoş geldin${n?", "+n:""} 🤍`,doneText:"Artık Girl Talk'un bir parçasısın. En kısa süre içinde seni WhatsApp duyuru grubumuza ekleyeceğiz. Buluşmalarımızı orada duyuracağız, görüşmek üzere 🥂",ig:"Instagram'da bizi takip et"},
  en:{title:"Join the community.",lead:"A women-only English speaking club, built around games. This form adds you to our WhatsApp announcement group. Joining events is entirely your choice, no commitment.",
   name:"What's your full name?",namePh:"Your first and last name",nameHint:"We can only add you with your real name, so please use your full name.",
   phone:"How can we reach you on WhatsApp?",cNum:"Phone number",cUser:"Username",uPh:"@username",
   level:"What's your English level?",l1:"Beginner",l2:"Intermediate",l3:"Advanced",l4:"Native",multi:"Choose as many as you like.",
   districts:"Where would you like to join events?",times:"Which days work for you?",
   t1:"Weekday evening",t2:"Saturday evening",t3:"Sunday evening",t0:"Daytime",any:"No preference",
-  free:"You're joining our free WhatsApp announcement group.\nEvents and tickets are shared there.",kvkkA:"Your data is processed as described in our ",kvkkLink:"KVKK privacy notice",kvkkB:".",
+  free:"You're joining our free WhatsApp announcement group. Events and tickets are shared there.",kvkkA:"Your data is processed as described in our ",kvkkLink:"KVKK privacy notice",kvkkB:".",
   kvkkText:"Girl Talk İzmir processes your name, WhatsApp number or username, English level, area and time preferences, to provide the service you request (KVKK Art. 5/2-c): to review your application, keep our women-only community safe, add you to our WhatsApp announcement group and plan events. Data is stored in Google Sheets (servers located abroad), is never shared with third parties and is kept for up to 2 years. To exercise your rights under Turkish data protection law (KVKK Art. 11) or to request deletion, message us on Instagram @girltalk.izmir.",
   send:"Join the group",sending:"Sending…",errName:"Please enter your first and last name.",errUser:"Please check your username, it needs at least 3 characters.",errPhone:"Please check your number. Turkish numbers have 10 digits: 5XX XXX XX XX.",errReq:"Please fill in every field and pick at least one area and one time.",errNet:"Something went wrong, please try again.",
-  hi:n=>`Welcome${n?", "+n:""} 🤍`,doneText:"You're officially part of Girl Talk. We'll add you to our WhatsApp announcement group as soon as possible. Our meetups are announced there, see you soon 🥂",ig:"Follow us on Instagram"}
+  home:"Back to home",hi:n=>`Welcome${n?", "+n:""} 🤍`,doneText:"You're officially part of Girl Talk. We'll add you to our WhatsApp announcement group as soon as possible. Our meetups are announced there, see you soon 🥂",ig:"Follow us on Instagram"}
 };
 
 document.getElementById("districts").innerHTML=DISTRICTS.concat("Any").map(d=>`<label><input type="checkbox" name="districts" value="${d}"><span${d==="Any"?' data-t="any"':""}>${d}</span></label>`).join("");
@@ -240,7 +241,7 @@ document.getElementById("districts").innerHTML=DISTRICTS.concat("Any").map(d=>`<
 const CC=[["🇹🇷","90"],["🇩🇪","49"],["🇬🇧","44"],["🇺🇸","1"],["🇮🇹","39"],["🇪🇸","34"],["🇫🇷","33"],["🇳🇱","31"],["🇧🇪","32"],["🇦🇹","43"],["🇨🇭","41"],["🇵🇱","48"],["🇵🇹","351"],["🇬🇷","30"],["🇧🇬","359"],["🇷🇴","40"],["🇸🇪","46"],["🇺🇦","380"],["🇷🇺","7"],["🇦🇿","994"],["🇮🇷","98"],["🇮🇳","91"],["🇧🇷","55"],["🇲🇽","52"],["🇪🇬","20"],["🇳🇬","234"],["🇨🇳","86"],["🇰🇷","82"],["🇯🇵","81"],["🌐","+"]];
 const cc=document.getElementById("cc");cc.innerHTML=CC.map(([f,c])=>`<option value="${c}">${f} ${c==="+"?"+…":"+"+c}</option>`).join("");
 const ph=document.getElementById("phone"),wau=document.getElementById("wauser"),telBox=document.getElementById("telBox");
-let ctype="num";document.querySelectorAll(".segc button").forEach(b=>b.onclick=()=>{ctype=b.dataset.v;document.querySelectorAll(".segc button").forEach(x=>{x.classList.toggle("on",x===b);x.setAttribute("aria-selected",x===b)});const u=ctype==="user";b.parentNode.classList.toggle("u",u);telBox.hidden=u;wau.hidden=!u;(u?wau:ph).focus();});
+let ctype="num";document.querySelectorAll(".segc button").forEach(b=>b.onclick=()=>{ctype=b.dataset.v;document.querySelectorAll(".segc button").forEach(x=>{x.classList.toggle("on",x===b);x.setAttribute("aria-selected",x===b)});const u=ctype==="user";b.parentNode.classList.toggle("u",u);telBox.hidden=u;wau.hidden=!u;const el=u?wau:ph;el.focus({preventScroll:true});setTimeout(()=>el.scrollIntoView({block:"center",behavior:"smooth"}),350);});
 function contact(){
   if(ctype==="user"){const u=wau.value.trim().replace(/^@+/,"");return{v:u?"@"+u:"",type:"Kullanıcı adı"};}
   const v=ph.value.trim();if(!v)return{v:"",type:""};
@@ -317,6 +318,7 @@ form.onsubmit=async e=>{
     document.getElementById("done").style.display="flex";celebrate();
   }catch(x){err.textContent=T[lang].errNet;btn.disabled=false;btn.textContent=T[lang].send;}
 };
+document.querySelectorAll("input").forEach(i=>i.addEventListener("focus",()=>setTimeout(()=>i.scrollIntoView({block:"center",behavior:"smooth"}),350)));
 </script>
 </body>
 </html>
