@@ -178,10 +178,10 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
 .nav .lang{background:rgba(30,18,20,.07);box-shadow:none;padding:3px}
 .nav .lang button{height:32px;min-width:36px;color:#6E5A60}
 .nav .lang button.on{background:#fff;color:var(--bordo);box-shadow:0 1px 3px rgba(64,21,34,.15)}
-@media (max-width:389px){.freebox p{white-space:normal}}
+@media (max-width:700px){.freebox p{white-space:normal;font-size:clamp(12.5px,3.35vw,13.5px)}}
 .nw{white-space:nowrap}.segc button{line-height:1.15}
 .fbh strong{white-space:nowrap;font-size:clamp(12.5px,3.8vw,15px)}@media (max-width:400px){.fbh{gap:6px}}
-@media (max-width:700px){.mwide{grid-column:1/-1}}
+
 </style>
 <script>(()=>{try{const k="gt-src";if(sessionStorage.getItem(k))return;const q=new URLSearchParams(location.search);const r=document.referrer&&!document.referrer.includes(location.host)?document.referrer:"";sessionStorage.setItem(k,JSON.stringify({s:q.get("utm_source")||"",m:q.get("utm_medium")||"",c:q.get("utm_campaign")||"",r}))}catch(e){}})();</script>
 <!-- Microsoft Clarity -->
@@ -265,17 +265,17 @@ const DISTRICTS = ["Karşıyaka","Bornova","Alsancak","Göztepe","Balçova","Çi
 const T = {
  tr:{title:"Topluluğa katıl.",lead:"Kadınlara özel, oyunlarla İngilizce konuşma kulübü. Bu formla WhatsApp topluluğumuza katılırsın. Etkinliklere katılmak tamamen senin kararın, hiçbir taahhüt yok.",
   name:"Adın soyadın ne?",namePh:"Adın ve soyadın",nameHint:"Topluluğa gerçek adınla ekleyebiliyoruz, lütfen tam adını yaz.",
-  phone:"WhatsApp numaran veya kullanıcı adın ne?",phHint:"Numaranı ya da WhatsApp kullanıcı adını yazabilirsin. Numaran ve kullanıcı adın topluluktaki diğer üyelere görünmez 🤍",phLink:"WhatsApp kullanıcı adımı nerede bulurum?",phInfo:"Önceden WhatsApp kullanıcı adı oluşturduysan WhatsApp → Ayarlar → Profil bölümünde görünür.",cNum:"Telefon numarası",cUser:"WhatsApp kullanıcı adı",cUserA:"WhatsApp",cUserB:"kullanıcı adı",uPh:"WhatsApp kullanıcı adın",
+  phone:"WhatsApp numaran veya kullanıcı adın ne?",phHint:"Etkinlik duyurularını alman için numaranı ya da WhatsApp kullanıcı adını yazabilirsin 🤍",phLink:"WhatsApp kullanıcı adımı nerede bulurum?",phInfo:"Önceden WhatsApp kullanıcı adı oluşturduysan WhatsApp → Ayarlar → Profil bölümünde görünür.",cNum:"Telefon numarası",cUser:"WhatsApp kullanıcı adı",cUserA:"WhatsApp",cUserB:"kullanıcı adı",uPh:"WhatsApp kullanıcı adın",
   level:"İngilizce seviyen nedir?",l1:"Başlangıç",l2:"Orta",l3:"İleri",l4:"Ana dilim",multi:"İstediğin kadar seçebilirsin.",
   districts:"Hangi semtlerdeki etkinliklere katılmak isterdin?",times:"Hangi günler sana uyar?",
   t1:"Hafta içi akşam",t2:"Cumartesi akşam",t3:"Pazar akşam",t0:"Gündüz",any:"Fark etmez",
-  freeB:"Ücretsiz",anl:"Siteyi geliştirmek için anonim kullanım verisi toplanır (Microsoft Clarity, Google Analytics).",freeH:"Girl Talk topluluğuna katıl",freeTag:"Ücretsiz katılım",free:"İzmir'deki İngilizce konuşma topluluğumuza katılarak\netkinlik detaylarından anında haberdar ol 🤍",kvkkA:"Kişisel verilerin ",kvkkLink:"KVKK aydınlatma metni",kvkkB:" kapsamında işlenir.",
+  freeB:"Ücretsiz",anl:"Siteyi geliştirmek için anonim kullanım verisi toplanır (Microsoft Clarity, Google Analytics).",freeH:"Girl Talk topluluğuna katıl",freeTag:"Ücretsiz katılım",free:"İzmir'deki İngilizce konuşma topluluğumuza katılarak\netkinlik detaylarından anında haberdar ol 🤍",kvkkA:"Kişisel verilerin ",kvkkLink:"KVKK aydınlatma metni",kvkkB:" kapsamında işlenir.",
   kvkkText:"Girl Talk İzmir olarak ad soyad, WhatsApp numarası veya kullanıcı adı, İngilizce seviyesi, semt ve zaman tercihlerini; başvurunu değerlendirmek, kadınlara özel topluluk güvenliğini sağlamak, seni WhatsApp topluluğumuza eklemek ve etkinlik planlamak amacıyla, talep ettiğin hizmeti sunmak için (KVKK m.5/2-c) işliyoruz. Veriler Google Sheets üzerinde saklanır (yurt dışında bulunan sunucular), üçüncü kişilerle paylaşılmaz ve en fazla 2 yıl tutulur. KVKK m.11 kapsamındaki haklarını kullanmak veya verilerinin silinmesini istemek için Instagram @girltalk.izmir hesabımıza yazabilirsin.",
   send:"Topluluğa katıl",sending:"Gönderiliyor…",errName:"Lütfen adını ve soyadını yaz.",errUser:"Kullanıcı adını kontrol eder misin? En az 3 karakter olmalı.",errPhone:"Numaranı kontrol eder misin? 5XX XXX XX XX şeklinde 10 hane olmalı.",errReq:"Lütfen tüm alanları doldur, en az bir semt ve bir zaman seç.",errNet:"Bir sorun oldu, tekrar dener misin?",
   home:"Anasayfaya dön",hi:n=>`Hoş geldin${n?", "+n:""} 🤍`,doneText:"Artık Girl Talk'un bir parçasısın. En kısa süre içinde seni WhatsApp topluluğumuza ekleyeceğiz. Etkinliklerimizi orada duyuracağız, görüşmek üzere 🤍",ig:"Instagram'da bizi takip et"},
  en:{title:"Join the community.",lead:"A women-only English speaking club, built around games. This form adds you to our WhatsApp community. Joining events is entirely your choice, no commitment.",
   name:"What's your full name?",namePh:"Your first and last name",nameHint:"We can only add you with your real name, so please use your full name.",
-  phone:"What's your WhatsApp number or username?",phHint:"You can enter your number or your WhatsApp username. Your number and username stay hidden from other community members 🤍",phLink:"Where do I find my WhatsApp username?",phInfo:"If you've already created a WhatsApp username, you can find it in WhatsApp → Settings → Profile.",cNum:"Phone number",cUser:"WhatsApp username",cUserA:"WhatsApp",cUserB:"username",uPh:"Your WhatsApp username",
+  phone:"What's your WhatsApp number or username?",phHint:"Write your number or WhatsApp username to get event announcements 🤍",phLink:"Where do I find my WhatsApp username?",phInfo:"If you've already created a WhatsApp username, you can find it in WhatsApp → Settings → Profile.",cNum:"Phone number",cUser:"WhatsApp username",cUserA:"WhatsApp",cUserB:"username",uPh:"Your WhatsApp username",
   level:"What's your English level?",l1:"Beginner",l2:"Intermediate",l3:"Advanced",l4:"Native",multi:"Choose as many as you like.",
   districts:"Where would you like to join events?",times:"Which days work for you?",
   t1:"Weekday evening",t2:"Saturday evening",t3:"Sunday evening",t0:"Daytime",any:"No preference",
